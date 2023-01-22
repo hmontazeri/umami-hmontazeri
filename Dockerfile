@@ -32,6 +32,9 @@ ENV NEXT_TELEMETRY_DISABLED 1
 RUN addgroup --system --gid 1001 nodejs
 RUN adduser --system --uid 1001 nextjs
 
+RUN --mount=type=secret,id=DATABASE_URL \
+    DATABASE_URL="$(cat /run/secrets/DATABASE_URL)"
+
 RUN yarn add npm-run-all dotenv prisma
 
 # You only need to copy next.config.js if you are NOT using the default configuration

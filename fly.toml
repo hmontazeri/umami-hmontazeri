@@ -1,6 +1,6 @@
-# fly.toml file generated for umami-hmontazeri on 2023-01-22T19:35:01+01:00
+# fly.toml file generated for umami-private on 2023-01-22T20:04:22+01:00
 
-app = "umami-hmontazeri"
+app = "umami-private"
 kill_signal = "SIGINT"
 kill_timeout = 5
 processes = []
@@ -11,7 +11,7 @@ processes = []
   auto_rollback = true
 
 [build.args]
-  DATABASE_TYPE = "postgresql"
+  DATABASE_TYPE="postgresql"
 
 [[services]]
   http_checks = []

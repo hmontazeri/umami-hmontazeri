@@ -13,10 +13,12 @@ COPY --from=deps /app/node_modules ./node_modules
 COPY . .
 
 ARG DATABASE_TYPE
+ARG DATABASE_URL
 ARG BASE_PATH
 
 ENV DATABASE_TYPE $DATABASE_TYPE
 ENV BASE_PATH $BASE_PATH
+ENV DATABASE_URL $DATABASE_URL
 
 ENV NEXT_TELEMETRY_DISABLED 1
 
@@ -35,7 +37,7 @@ RUN adduser --system --uid 1001 nextjs
 RUN --mount=type=secret,id=DATABASE_URL \
     DATABASE_URL="$(cat /run/secrets/DATABASE_URL)"
 
-ENV DATABASE_URL $DATABASE_URL
+
 
 RUN yarn add npm-run-all dotenv prisma
 

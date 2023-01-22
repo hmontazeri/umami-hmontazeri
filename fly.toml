@@ -12,6 +12,7 @@ processes = []
 
 [build.args]
   DATABASE_TYPE="postgresql"
+  DATABASE_URL="postgres://umami_private:7xDmZMmsFqdKLER@top2.nearest.of.umami-private-db.internal:5432/umami_private?sslmode=disable"
 
 [[services]]
   http_checks = []
